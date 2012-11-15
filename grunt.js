@@ -39,7 +39,7 @@ module.exports = function(grunt) {
         src: "example/scripts.shtml",
         dest: "build/js/all.js"
       }
-   }
+    }
   });
 
   // Load local tasks.
