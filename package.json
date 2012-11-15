@@ -1,0 +1,40 @@
+{
+  "name": "grunt-buildconcat",
+  "description": "Grunt task to concatenate files declared on an external include",
+  "version": "0.1.0",
+  "homepage": "https://github.com/carlosrodriguez/grunt-buildconcat",
+  "author": {
+    "name": "Carlos Rodriguez",
+    "email": "crodriguez@bgtpartners.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/carlosrodriguez/grunt-buildconcat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/carlosrodriguez/grunt-buildconcat/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/carlosrodriguez/grunt-buildconcat/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "grunt.js",
+  "bin": "bin/grunt-buildconcat",
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "grunt": "~0.3.11"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.11"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
