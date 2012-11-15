@@ -1,0 +1,69 @@
+body {
+	padding: 15px;
+	font-family:  Arial, sans-serif;
+}
+/*elements used for accessibility*/
+.structural {
+    left: -9999px;
+    margin: 0;
+    position: absolute;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #333;
+	line-height: 1.2em;
+	margin-bottom: 15px;
+	font-weight: bold;
+}
+h1 {
+	font-size: 2.6em;
+	font-weight: normal;
+}
+h2 {
+	font-size: 2em;
+}
+h3 {
+	font-size: 1.6em;
+	margin-bottom: 10px;
+}
+h4 {
+	font-size: 1.2em;
+	margin-bottom: 5px;
+}
+h5 {
+	font-size: 1em;
+	margin-bottom: 5px;
+}
+h6 {
+	font-size: 1em;
+	margin-bottom: 5px;
+}
+
+a:link, a:visited {
+  color: #e56718;
+}
+a:hover {
+  color: #000;
+}
+a:active {
+  color: #e56718;
+}
+
+p {
+	font-size: 1em;
+	line-height: 1.2em;
+	margin-bottom: 15px;
+}
+
+ul, ol, dl {
+	margin-bottom: 15px;
+}
+ul ul, ol ol, dl dl {
+	margin: 5px 0 0 0;
+}
+	
+li, dt, dd {
+	font-size: 1em;
+	line-height: 1.2em;
+	margin-bottom: 5px;
+}
