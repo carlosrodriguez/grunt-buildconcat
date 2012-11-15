@@ -25,16 +25,27 @@ module.exports = function(grunt) {
         boss: true,
         eqnull: true,
         node: true,
-        es5: true
+        es5: true,
+        strict: false
       },
       globals: {}
-    }
+    },
+    buildconcat: {
+      css: {
+        src: "example/stylesheets.shtml",
+        dest: "build/css/all.css"
+      },
+      js: {
+        src: "example/scripts.shtml",
+        dest: "build/js/all.js"
+      }
+   }
   });
 
   // Load local tasks.
   grunt.loadTasks('tasks');
 
   // Default task.
-  grunt.registerTask('default', 'lint test');
+  grunt.registerTask('default', 'lint buildconcat test');
 
 };

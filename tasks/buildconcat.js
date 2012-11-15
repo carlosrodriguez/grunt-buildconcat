@@ -15,16 +15,36 @@ module.exports = function(grunt) {
   // TASKS
   // ==========================================================================
 
-  grunt.registerTask('buildconcat', 'Your task description goes here.', function() {
-    grunt.log.write(grunt.helper('buildconcat'));
+  grunt.registerMultiTask('buildconcat', 'Build a concatenation string from includes on an external file.', function() {
+
+    var src = grunt.helper('buildconcat', this.data);
+
+    if (this.errorCount) { 
+      return false; 
+    } else {
+      grunt.file.write(this.file.dest, src);
+      grunt.log.writeln("Created the " + this.data.dest + " file");
+      return true;
+    }
+
   });
 
   // ==========================================================================
   // HELPERS
   // ==========================================================================
 
-  grunt.registerHelper('buildconcat', function() {
-    return 'buildconcat!!!';
+  grunt.registerHelper('buildconcat', function(config) {
+    var fs = require('fs'),
+        sourceFile = fs.readFileSync(config.src, 'ascii'),
+        list = sourceFile.match(/(href|src)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, ""),
+        files = list.join(',').replace(/(src=|href=)?\"/g,"").split(","),
+        concatFiles = grunt.file.expandFiles(files),
+        src = grunt.helper('concat', concatFiles);
+
+    grunt.log.writeln("Concatenating files from list: " + files);
+
+    return src;
+
   });
 
 };
