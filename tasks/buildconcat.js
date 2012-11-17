@@ -43,13 +43,6 @@ module.exports = function(grunt) {
 
     grunt.log.writeln("Concatenating files from list: " + files);
 
-    console.log("TEST 6")
-    console.log(list);
-    console.log(list.join(','));
-    console.log(files);
-    console.log(concatFiles);
-    console.log(src)
-
     return src;
 
   });

@@ -1,7 +1,7 @@
 {
   "name": "grunt-buildconcat",
   "description": "Grunt task to concatenate files declared on an external include",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/carlosrodriguez/grunt-buildconcat",
   "author": {
     "name": "Carlos Rodriguez",
