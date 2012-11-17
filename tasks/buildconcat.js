@@ -37,11 +37,18 @@ module.exports = function(grunt) {
     var fs = require('fs'),
         sourceFile = fs.readFileSync(config.src, 'ascii'),
         list = sourceFile.match(/(href|src)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, ""),
-        files = list.join(',').replace(/(src=|href=)?\"/g,"").split(","),
+        files = list.join(',').replace(/(src=|href=)?\"\/|(src=|href=)?\"/g,"").split(","),
         concatFiles = grunt.file.expandFiles(files),
         src = grunt.helper('concat', concatFiles);
 
     grunt.log.writeln("Concatenating files from list: " + files);
+
+    console.log("TEST 6")
+    console.log(list);
+    console.log(list.join(','));
+    console.log(files);
+    console.log(concatFiles);
+    console.log(src)
 
     return src;
 
