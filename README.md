@@ -34,7 +34,9 @@ And add a grunt task to your project's `grunt.js` gruntfile:
 buildconcat: {
   css: {
     src: "example/stylesheets.shtml",
-    dest: "build/css/all.css"
+    dest: "build/css/all.css",
+    prepend: "<banner:meta.banner>",
+    cleanBanner: true
   },
   js: {
     src: "example/scripts.shtml",
@@ -50,6 +52,7 @@ buildconcat: {
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][grunt].
 
 ## Release History
+0.1.2 Added banners
 0.1.0 Initial buildconcat working
 
 ## License
