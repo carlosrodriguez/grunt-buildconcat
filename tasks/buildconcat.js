@@ -37,14 +37,34 @@ module.exports = function(grunt) {
     var fs = require('fs'),
         sourceFile = fs.readFileSync(config.src, 'ascii'),
         list = sourceFile.match(/(href|src)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, ""),
-        files = list.join(',').replace(/(src=|href=)?\"\/|(src=|href=)?\"/g,"").split(","),
-        concatFiles = grunt.file.expandFiles(files),
-        src = grunt.helper('concat', concatFiles);
+        files = list.join(',').replace(/(src=|href=)?\"\/|(src=|href=)?\"/g,"").split(",");
+
+    if(config.cleanBanner){
+    	files = stripBanner(files);
+    }
+
+    var concatFiles = grunt.file.expandFiles(files);
+
+   	if(config.prepend) {
+   		concatFiles.unshift(grunt.template.process(config.prepend));
+   	}
+
+    var src = grunt.helper('concat', concatFiles);
 
     grunt.log.writeln("Concatenating files from list: " + files);
 
     return src;
 
+  });
+
+  function stripBanner( files ) {
+	return files.map(function( file ) {
+		return "<strip_all_banners:" + file + ">";
+	});
+  }
+
+  grunt.registerHelper( "strip_all_banners", function( filepath ) {
+    return grunt.file.read( filepath ).replace( /^\s*\/\*[\s\S]*?\*\/\s*/g, "" );
   });
 
 };

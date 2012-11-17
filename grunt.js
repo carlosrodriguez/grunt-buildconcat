@@ -1,9 +1,19 @@
 module.exports = function(grunt) {
+  
+  function createBanner(  ) {
+
+    return '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+            '* <%= pkg.description %>\n' +
+            '*/';
+  }
 
   // Project configuration.
   grunt.initConfig({
     test: {
       files: ['test/**/*.js']
+    },
+    meta: {
+      banner: createBanner() 
     },
     lint: {
       files: ['grunt.js', 'tasks/**/*.js', 'test/**/*.js']
@@ -33,11 +43,15 @@ module.exports = function(grunt) {
     buildconcat: {
       css: {
         src: "example/stylesheets.shtml",
-        dest: "build/css/all.css"
+        dest: "build/css/all.css",
+        prepend: "<banner:meta.banner>",
+        cleanBanner: true
       },
       js: {
         src: "example/scripts.shtml",
-        dest: "build/js/all.js"
+        dest: "build/js/all.js",
+        prepend: "<banner:meta.banner>",
+        cleanBanner: true
       }
     }
   });
